@@ -41,7 +41,7 @@ const Collections = ({ productsFilter, sortProducts }) => {
           onChange={(e) => sortProducts(e.value)}
         />
       </div>
-      <div className="flex flex-row flex-wrap gap-5 mt-5">
+      <div className="flex flex-row flex-wrap gap-5 mt-5 justify-around">
         {productsFilter.map((product, index) => (
           <Product {...product} key={index} />
         ))}

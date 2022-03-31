@@ -42,7 +42,7 @@ const Navbar = ({ user, SignInUser }) => {
               <FaRegHeart />
             </li> */}
             <li
-              className="ml-10  text-2xl relative"
+              className="ml-10  text-2xl relative  hover:cursor-pointer"
               data-tip={`Cart (${(user?.carts && user?.carts.length) || 0})`}
             >
               <span className=" text-center w-5 h-5 bg-blue-500 text-white font-bold text-sm rounded-full absolute top-[-7px] right-[-12px]">
@@ -54,7 +54,7 @@ const Navbar = ({ user, SignInUser }) => {
             </li>
           </>
 
-          <li className="ml-10 text-2xl">
+          <li className="ml-10 text-2xl hover:cursor-pointer">
             {user ? (
               <Select
                 styles={{ fontSize: 16 }}

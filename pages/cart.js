@@ -13,7 +13,7 @@ import { FaTimes } from "react-icons/fa";
 import { child, ref, set } from "firebase/database";
 import { database } from "../firebase";
 import { toast } from "react-toastify";
-
+import { useRouter } from "next/router";
 const options = () => {
   let arr = [];
   for (let i = 1; i <= 100; i++) {
@@ -25,7 +25,7 @@ const StoreCart = createContext(null);
 const SubSubCart = ({ id, brand, amount, name, imageURL, sizePro }) => {
   const { user, SignInUser } = useContext(Store);
   const { handleRemoveItem } = useContext(StoreCart);
-
+  const router = useRouter();
   const updateQuantity = (nameSize, valueSize) => {
     const accountList = ref(database, `account/${user.userId}`);
     child(accountList, user?.userId);
@@ -55,7 +55,10 @@ const SubSubCart = ({ id, brand, amount, name, imageURL, sizePro }) => {
     }
   };
   return (
-    <div className="flex flex-row border-2 relative w-[500px] mt-5">
+    <div
+      className="flex flex-row border-2 relative w-[500px] mt-5"
+      onClick={() => router.push(`/collections/${id}`)}
+    >
       <span
         onClick={onRemoveItem}
         className="absolute top-3 right-3 cursor-pointer hover:text-red-600 p-2"
@@ -131,6 +134,7 @@ const Payment = ({ carts, countUpdate }) => {
         } else {
           toast.error(voucher.message, { position: "top-center" });
           setDiscount({ price: 0 });
+          setPriceDiscount(0);
         }
       });
     } else {

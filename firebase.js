@@ -6,10 +6,13 @@ import { getDatabase } from "firebase/database";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+//FIREBASE các bạn hãy tự tạo theo video của mình
+//Link DATA JSON: https://drive.google.com/file/d/1OBrfE765uce9JhsXrsE2HBRDv-ma9nOM/view?usp=sharing
 const firebaseConfig = {
-  apiKey: "AIzaSyBSKcZXI46cOVqoNxdJoxTfQwK-BCtSrxA",
-  authDomain: "tiktok-app-cc060.firebaseapp.com",
-  databaseURL: "https://tiktok-app-cc060-default-rtdb.firebaseio.com",
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  databaseURL: process.env.DATABASE_URL,
   projectId: "tiktok-app-cc060",
   storageBucket: "tiktok-app-cc060.appspot.com",
   messagingSenderId: "95541763666",
